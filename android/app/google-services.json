@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "819202745084",
+    "project_id": "interactopia-74b7a",
+    "storage_bucket": "interactopia-74b7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:819202745084:android:4d5e8110985fee9a10ad79",
+        "android_client_info": {
+          "package_name": "com.example.interactopia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxEHIojb_6BchRJNsOMLN5OI83Z5E7Kgo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
