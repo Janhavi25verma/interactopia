@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:interactopia/core/constants.dart';
+import 'package:interactopia/features/auth/controller/auth_controller.dart';
 import 'package:interactopia/theme/palette.dart';
 
-class SignInButton extends StatelessWidget {
+class SignInButton extends ConsumerWidget {
   const SignInButton({super.key});
 
+   void signInWithGoogle(WidgetRef ref){
+     ref.read(authControllerProvider).signInWithGoogle();
+   }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     return SizedBox(
       width: 400,
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () => signInWithGoogle(ref),
           icon: Image.asset(
             Constants.googlePath,
             width: 40,
