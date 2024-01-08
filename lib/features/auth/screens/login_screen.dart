@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:interactopia/core/constants.dart';
+import 'package:interactopia/core/constants/constants.dart';
 import 'package:interactopia/core/sign_in.dart';
 import 'package:interactopia/theme/palette.dart';
 

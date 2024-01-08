@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:interactopia/core/constants.dart';
+import 'package:interactopia/core/constants/constants.dart';
 import 'package:interactopia/features/auth/controller/auth_controller.dart';
 import 'package:interactopia/theme/palette.dart';
 

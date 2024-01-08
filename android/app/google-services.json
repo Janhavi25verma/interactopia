@@ -12,7 +12,20 @@
           "package_name": "com.example.interactopia"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "819202745084-h2ehb21f411amp2nk414vk2uvju7diou.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interactopia",
+            "certificate_hash": "477b0ecd5337b409b7f46d54dd2e235d155e4b91"
+          }
+        },
+        {
+          "client_id": "819202745084-53j1n40mcd2bpcis3im0dnj67a1dl180.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAxEHIojb_6BchRJNsOMLN5OI83Z5E7Kgo"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "819202745084-53j1n40mcd2bpcis3im0dnj67a1dl180.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "819202745084-ioguuenqcjlo0rspv9rhia2n77lkm1p0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.interactopia"
+              }
+            }
+          ]
         }
       }
     }
