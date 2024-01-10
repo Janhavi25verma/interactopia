@@ -7,33 +7,32 @@ import 'package:interactopia/theme/palette.dart';
 class SignInButton extends ConsumerWidget {
   const SignInButton({super.key});
 
-   void signInWithGoogle(WidgetRef ref){
-     ref.read(authControllerProvider).signInWithGoogle();
-   }
+  void signInWithGoogle(BuildContext context, WidgetRef ref) {
+    ref.read(authControllerProvider).signInWithGoogle(context);
+  }
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return SizedBox(
       width: 400,
       child: Padding(
         padding: const EdgeInsets.all(15),
         child: ElevatedButton.icon(
-          onPressed: () => signInWithGoogle(ref),
-          icon: Image.asset(
-            Constants.googlePath,
-            width: 40,
-          ),
-          label: const Text(
-            "Sign in through google",
-            style: TextStyle(color: Pallete.whiteColor),
-          ),
-        style:
-        ElevatedButton.styleFrom(
-        backgroundColor: Pallete.darkGreenColor,
-        shadowColor: Pallete.whiteColor,
-        shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.zero),
-        )),
+            onPressed: () => signInWithGoogle(context, ref),
+            icon: Image.asset(
+              Constants.googlePath,
+              width: 40,
+            ),
+            label: const Text(
+              "Sign in through google",
+              style: TextStyle(color: Pallete.whiteColor),
+            ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Pallete.darkGreenColor,
+              shadowColor: Pallete.whiteColor,
+              shape:
+                  const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+            )),
       ),
     );
   }
