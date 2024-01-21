@@ -25,11 +25,11 @@ class SignInButton extends ConsumerWidget {
             ),
             label: const Text(
               "Sign in through google",
-              style: TextStyle(color: Pallete.whiteColor),
+              style: TextStyle(color: Palette.whiteColor),
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Pallete.darkGreenColor,
-              shadowColor: Pallete.whiteColor,
+              backgroundColor: Palette.darkGreenColor,
+              shadowColor: Palette.whiteColor,
               shape:
                   const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             )),

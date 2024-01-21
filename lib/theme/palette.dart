@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Pallete {
+class Palette {
   // Colors
   static const blackColor = Color.fromRGBO(0, 0, 0, 1.0); // primary color
   static const darkGreenColor =

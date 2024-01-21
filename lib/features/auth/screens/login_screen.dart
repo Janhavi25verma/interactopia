@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: const Text(
               "Skip >",
               style: TextStyle(
-                  fontWeight: FontWeight.w300, color: Pallete.greyGreenColor),
+                  fontWeight: FontWeight.w300, color: Palette.greyGreenColor),
             ),
           ),
         ],
@@ -110,14 +110,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Pallete.darkGreenColor,
-                        shadowColor: Pallete.whiteColor,
+                        backgroundColor: Palette.darkGreenColor,
+                        shadowColor: Palette.whiteColor,
                         shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.zero),
                       ),
                       child: const Text(
                         "Login",
-                        style: TextStyle(color: Pallete.whiteColor),
+                        style: TextStyle(color: Palette.whiteColor),
                       ),
                     ),
                   ),

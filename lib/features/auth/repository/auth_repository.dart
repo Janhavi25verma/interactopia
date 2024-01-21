@@ -5,32 +5,34 @@ import 'package:fpdart/fpdart.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:interactopia/core/constants/constants.dart';
 import 'package:interactopia/core/constants/firebase_constants.dart';
+import 'package:interactopia/core/failure.dart';
 import 'package:interactopia/core/providers/firebase_provider.dart';
 import 'package:interactopia/core/type_def.dart';
 import 'package:interactopia/models/user_model.dart';
 
-import '../../../core/failure.dart';
 
-final authRepositoryProvider = Provider((ref) => AuthRepository(
-    firestore: ref.read(firestoreProvider),
-    auth: ref.read(authProvider),
-    googleSignIn: ref.read(googleSignInProvider)));
+final authRepositoryProvider = Provider((ref) =>
+    AuthRepository(
+        firestore: ref.read(firestoreProvider),
+        auth: ref.read(authProvider),
+        googleSignIn: ref.read(googleSignInProvider)));
 
 class AuthRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn;
 
-  AuthRepository(
-      {required FirebaseFirestore firestore,
-      required FirebaseAuth auth,
-      required GoogleSignIn googleSignIn})
+  AuthRepository({required FirebaseFirestore firestore,
+    required FirebaseAuth auth,
+    required GoogleSignIn googleSignIn})
       : _auth = auth,
         _firestore = firestore,
         _googleSignIn = googleSignIn;
 
   CollectionReference get _user =>
       _firestore.collection(FirebaseConstants.usersCollection);
+
+  Stream<User?> get authStateChange=>_auth.authStateChanges();
 
   FutureEither<UserModel> signInWithGoogle() async {
     try {
@@ -41,8 +43,8 @@ class AuthRepository {
         idToken: googleAuth?.idToken,
       );
       UserCredential userCredential =
-          await _auth.signInWithCredential(credential);
-       UserModel userModel;
+      await _auth.signInWithCredential(credential);
+      UserModel userModel;
       if (userCredential.additionalUserInfo!.isNewUser) {
         userModel = UserModel(
             name: userCredential.user!.displayName ?? "No Name",
@@ -51,11 +53,12 @@ class AuthRepository {
             isAuthenticated: "true",
             banner: Constants.bannerDefault,
             karma: 0,
+            email: userCredential.user!.email??"No Email",
             awards: []);
         await _user.doc(userModel.uid).set(userModel.toMap());
       }
-      else{
-        userModel =  await getUserData(userCredential.user!.uid).first;
+      else {
+        userModel = await getUserData(userCredential.user!.uid).first;
       }
       return right(userModel);
     } on FirebaseException catch (e) {
@@ -67,6 +70,9 @@ class AuthRepository {
 
   Stream<UserModel> getUserData(String uid) {
     return _user.doc(uid).snapshots().map(
-        (event) => UserModel.fromMap(event.data() as Map<String, dynamic>));
+            (event) => UserModel.fromMap(event.data() as Map<String, dynamic> ));
   }
+  // Stream<UserModel> getUserData(String uid) {
+  //   return _users.doc(uid).snapshots().map((event) => UserModel.fromMap(event.data() as Map<String, dynamic>));
+  // }
 }
